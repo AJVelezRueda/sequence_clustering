@@ -1,6 +1,6 @@
 import argparse
 
-from db_build.db_download import create_db_from_fasta
+from db_build.db_build import create_db_from_fasta
 
 
 def main():
