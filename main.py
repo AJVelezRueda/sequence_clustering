@@ -7,17 +7,29 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--fasta_db_file', 
         type=str,
+        required=False,
         help='path of the Fasta file to convert to a mmseqs parseable db')
 
-    parser.add_argument('--fasta_files_list', nargs='+', default=[],
+    parser.add_argument('--fasta_files_list', 
+        nargs='+', 
+        default=[],
+        required=False,
         help='fasta files to marge sepatared by an space')
     
     args = parser.parse_args()
-    
-    #create_db_from_fasta(args.fasta_db_file)
 
-    merge_fastas(args.fasta_files_list, './data/final_fasta.fasta')
+    if args.fasta_db_file:   
+        try:
+            create_db_from_fasta(args.fasta_db_file)
+        except:
+            pass 
+
+    if args.fasta_files_list: 
+        try:
+            merge_fastas(args.fasta_files_list, './data/final_fasta.fasta')
+        except:
+            pass
     
-    
+
 if __name__ == "__main__":
     main()
