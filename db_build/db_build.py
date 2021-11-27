@@ -13,4 +13,4 @@ def merge_fastas(fasta_list, final_fasta):
     for i in range(0, len(fasta_list)):
         with open(final_fasta,"a") as a_fasta:
             another_fasta = open(fasta_list[i], 'r').read()
-            a_fasta.write('/n' + another_fasta)
+            a_fasta.write(another_fasta)
