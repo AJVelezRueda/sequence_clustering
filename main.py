@@ -14,22 +14,17 @@ def main():
         nargs='+', 
         default=[],
         required=False,
-        help='fasta files to marge sepatared by an space')
+        help='path to the fasta files to merge sepatared by an space')
     
     args = parser.parse_args()
 
     if args.fasta_db_file:   
-        try:
-            create_db_from_fasta(args.fasta_db_file)
-        except:
-            pass 
-
-    if args.fasta_files_list: 
-        try:
-            merge_fastas(args.fasta_files_list, './data/final_fasta.fasta')
-        except:
-            pass
-    
+        create_db_from_fasta(args.fasta_db_file)
+    elif args.fasta_files_list: 
+        merge_fastas(args.fasta_files_list, './data/final_fasta.fasta')
+    else:
+        parser.print_help()
+ 
 
 if __name__ == "__main__":
     main()

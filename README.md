@@ -13,6 +13,8 @@ $ conda deactivate
 ## Running CavDB
 
 ```bash
+#Activate the conda venv
+$ conda activate cavDB
 #for merging multiple fasta files
 $ python main.py --fasta_files_list ./data/un_fasta.fasta ./data/otro_fasta.fasta
 #for creating a db from a fasta file
