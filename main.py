@@ -27,6 +27,8 @@ def main():
         create_db_from_fasta(args.fasta_db_file)
     elif args.fasta_files_list: 
         merge_fastas(args.fasta_files_list, './data/final_fasta.fasta')
+    elif args.download_PDBd: 
+        merge_fastas(args.download_PDBd)
     else:
         parser.print_help()
  
