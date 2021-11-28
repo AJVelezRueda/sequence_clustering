@@ -15,6 +15,11 @@ def main():
         default=[],
         required=False,
         help='path to the fasta files to merge sepatared by an space')
+
+    parser.add_argument('--download_PDBdb', 
+        type=str,
+        required=False,
+        help='path to the output path')
     
     args = parser.parse_args()
 
