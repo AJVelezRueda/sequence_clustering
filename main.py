@@ -1,6 +1,7 @@
 import argparse
 
 from db_build.db_build import create_db_from_fasta, merge_fastas
+from db_build.db_download import download_PDBdb
 
 
 def main():
@@ -16,7 +17,7 @@ def main():
         required=False,
         help='path to the fasta files to merge sepatared by an space')
 
-    parser.add_argument('--download_PDBdb', 
+    parser.add_argument('--download_PDB', 
         type=str,
         required=False,
         help='path to the output path')
@@ -27,8 +28,8 @@ def main():
         create_db_from_fasta(args.fasta_db_file)
     elif args.fasta_files_list: 
         merge_fastas(args.fasta_files_list, './data/final_fasta.fasta')
-    elif args.download_PDBd: 
-        merge_fastas(args.download_PDBd)
+    elif args.download_PDB: 
+        download_PDBdb(args.download_PDB)
     else:
         parser.print_help()
  

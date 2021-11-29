@@ -1,3 +1,5 @@
+import subprocess
+
 def download_PDBdb(outpath):
     cmd = f"mmseqs databases PDB {outpath}/PDB {outpath}"
     try:
