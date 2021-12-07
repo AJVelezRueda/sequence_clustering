@@ -1,4 +1,4 @@
-import subprocess, requests
+import subprocess, wget
 
 
 def download_PDBdb(outpath):
@@ -9,10 +9,11 @@ def download_PDBdb(outpath):
         print("Se rompió!")
 
 
-def download_fastaPDB(out_path):
+def download_fastaPDB(file_name):
     try:
         url = 'https://ftp.wwpdb.org/pub/pdb/derived_data/pdb_seqres.txt' 
-        r = requests.get(url)
-        open("pdb_seqres.txt", 'wb').write(r.content)
+        print("collecting data")
+        file = wget.download(url, file_name)
+        print("Finished!")
     except:
         print("Se rompió!")

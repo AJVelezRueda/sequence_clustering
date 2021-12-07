@@ -1,7 +1,7 @@
 import argparse
 
 from db_build.db_build import create_db_from_fasta, merge_fastas
-from db_build.db_download import download_PDBdb
+from db_build.db_download import download_PDBdb, download_fastaPDB
 from clustering_seqs.clustering_seqs import clustering_huge_data_seqs
 
 
@@ -23,6 +23,11 @@ def main():
         required=False,
         help='path to the output path')
 
+    parser.add_argument('--download_fastaPDB', 
+        type=str,
+        required=False,
+        help='complete path to the PDBs fasta output name')
+
     parser.add_argument('--clustering_seqs', 
         nargs='+', 
         default=[],
@@ -37,6 +42,8 @@ def main():
         merge_fastas(args.fasta_files_list, './data/final_fasta.fasta')
     elif args.download_PDB: 
         download_PDBdb(args.download_PDB)
+    elif args.download_fastaPDB: 
+        download_fastaPDB(args.download_fastaPDB)
     elif args.clustering_seqs:
         clustering_huge_data_seqs(args.clustering_seqs[0],args.clustering_seqs[1])
     else:
