@@ -6,14 +6,14 @@ def download_PDBdb(outpath):
     try:
         subprocess.run(cmd, shell=True)
     except subprocess.CalledProcessError as error:
-        print("Se rompió!")
+        print("Something went wrong")
 
 
 def download_fastaPDB(file_name):
     try:
         url = 'https://ftp.wwpdb.org/pub/pdb/derived_data/pdb_seqres.txt' 
-        print("collecting data")
+        print("Collecting data...take a Coffee or a Mate it may last long!")
         file = wget.download(url, file_name)
-        print("Finished!")
+        print(" Finished!")
     except:
-        print("Se rompió!")
+        print(" Failed to collect data!")

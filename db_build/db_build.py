@@ -6,7 +6,7 @@ def create_db_from_fasta(fasta_file):
     try:
         subprocess.run(cmd, shell=True)
     except subprocess.CalledProcessError as error:
-        print("Se rompió!")
+        print("Something went wrong!")
 
 
 def merge_fastas(fasta_list, final_fasta):
